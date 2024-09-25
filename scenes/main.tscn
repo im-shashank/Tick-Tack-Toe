@@ -1,0 +1,262 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7y6dt63p33mc"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_0f1vk"]
+[ext_resource type="Shader" path="res://scenes/main.gdshader" id="1_hih5l"]
+[ext_resource type="Texture2D" uid="uid://btepcttr42vi3" path="res://icon.svg" id="2_vxjqb"]
+[ext_resource type="Shader" path="res://scenes/line1.gdshader" id="3_8n43y"]
+[ext_resource type="PackedScene" uid="uid://d01mrnhdphy2h" path="res://scenes/x.tscn" id="4_36i41"]
+[ext_resource type="PackedScene" uid="uid://bbgoy3vh8rl0s" path="res://scenes/o.tscn" id="5_1u06d"]
+[ext_resource type="Shader" path="res://scenes/button.gdshader" id="7_t6ra0"]
+[ext_resource type="Script" path="res://scenes/game_over_layer.gd" id="8_7q1bs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7b5x3"]
+shader = ExtResource("1_hih5l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2dccl"]
+shader = ExtResource("3_8n43y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga8i7"]
+shader = ExtResource("7_t6ra0")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0f1vk")
+
+[node name="background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7b5x3")
+position = Vector2(587, 349)
+scale = Vector2(11.4141, 6.25781)
+texture = ExtResource("2_vxjqb")
+
+[node name="Grid" type="Node2D" parent="."]
+position = Vector2(86, 5)
+
+[node name="line1" type="Sprite2D" parent="Grid"]
+material = SubResource("ShaderMaterial_2dccl")
+position = Vector2(353, 317)
+scale = Vector2(0.265625, 4.78125)
+texture = ExtResource("2_vxjqb")
+
+[node name="line2" type="Sprite2D" parent="Grid"]
+material = SubResource("ShaderMaterial_2dccl")
+position = Vector2(632, 314)
+scale = Vector2(0.265625, 4.78125)
+texture = ExtResource("2_vxjqb")
+
+[node name="line3" type="Sprite2D" parent="Grid"]
+material = SubResource("ShaderMaterial_2dccl")
+position = Vector2(490.206, 436)
+rotation = 1.5708
+scale = Vector2(0.265625, 6.28184)
+texture = ExtResource("2_vxjqb")
+
+[node name="line4" type="Sprite2D" parent="Grid"]
+material = SubResource("ShaderMaterial_2dccl")
+position = Vector2(490.206, 213.41)
+rotation = 1.5708
+scale = Vector2(0.265625, 6.28184)
+texture = ExtResource("2_vxjqb")
+
+[node name="X" type="Node2D" parent="."]
+
+[node name="X1" parent="X" instance=ExtResource("4_36i41")]
+visible = false
+position = Vector2(146, 19)
+scale = Vector2(0.295, 0.295)
+
+[node name="X2" parent="X" instance=ExtResource("4_36i41")]
+visible = false
+position = Vector2(443, 18)
+scale = Vector2(0.295, 0.295)
+
+[node name="X3" parent="X" instance=ExtResource("4_36i41")]
+visible = false
+position = Vector2(705, 17)
+scale = Vector2(0.295, 0.295)
+
+[node name="X4" parent="X" instance=ExtResource("4_36i41")]
+visible = false
+position = Vector2(706, 246)
+scale = Vector2(0.295, 0.295)
+
+[node name="X5" parent="X" instance=ExtResource("4_36i41")]
+visible = false
+position = Vector2(421, 240)
+scale = Vector2(0.295, 0.295)
+
+[node name="X6" parent="X" instance=ExtResource("4_36i41")]
+visible = false
+position = Vector2(145, 234)
+scale = Vector2(0.295, 0.295)
+
+[node name="X7" parent="X" instance=ExtResource("4_36i41")]
+visible = false
+position = Vector2(141, 445)
+scale = Vector2(0.295, 0.295)
+
+[node name="X8" parent="X" instance=ExtResource("4_36i41")]
+visible = false
+position = Vector2(433, 449)
+scale = Vector2(0.295, 0.295)
+
+[node name="X9" parent="X" instance=ExtResource("4_36i41")]
+visible = false
+position = Vector2(713, 450)
+scale = Vector2(0.295, 0.295)
+
+[node name="O" type="Node2D" parent="."]
+
+[node name="O1" parent="O" instance=ExtResource("5_1u06d")]
+visible = false
+position = Vector2(-118, -114)
+scale = Vector2(0.715, 0.715)
+
+[node name="O2" parent="O" instance=ExtResource("5_1u06d")]
+visible = false
+position = Vector2(185, -116)
+scale = Vector2(0.715, 0.715)
+
+[node name="O3" parent="O" instance=ExtResource("5_1u06d")]
+visible = false
+position = Vector2(447, -114)
+scale = Vector2(0.715, 0.715)
+
+[node name="O4" parent="O" instance=ExtResource("5_1u06d")]
+visible = false
+position = Vector2(447, 114)
+scale = Vector2(0.715, 0.715)
+
+[node name="O5" parent="O" instance=ExtResource("5_1u06d")]
+visible = false
+position = Vector2(165, 107)
+scale = Vector2(0.715, 0.715)
+
+[node name="O6" parent="O" instance=ExtResource("5_1u06d")]
+visible = false
+position = Vector2(-115, 103)
+scale = Vector2(0.715, 0.715)
+
+[node name="O7" parent="O" instance=ExtResource("5_1u06d")]
+visible = false
+position = Vector2(-119, 314)
+scale = Vector2(0.715, 0.715)
+
+[node name="O8" parent="O" instance=ExtResource("5_1u06d")]
+visible = false
+position = Vector2(171, 316)
+scale = Vector2(0.715, 0.715)
+
+[node name="O9" parent="O" instance=ExtResource("5_1u06d")]
+visible = false
+position = Vector2(456, 318)
+scale = Vector2(0.715, 0.715)
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Button1" type="Button" parent="Buttons"]
+material = SubResource("ShaderMaterial_ga8i7")
+offset_left = 175.0
+offset_top = 24.0
+offset_right = 421.0
+offset_bottom = 203.0
+
+[node name="Button2" type="Button" parent="Buttons"]
+material = SubResource("ShaderMaterial_ga8i7")
+offset_left = 453.0
+offset_top = 21.0
+offset_right = 699.0
+offset_bottom = 200.0
+
+[node name="Button3" type="Button" parent="Buttons"]
+material = SubResource("ShaderMaterial_ga8i7")
+offset_left = 735.0
+offset_top = 23.0
+offset_right = 981.0
+offset_bottom = 202.0
+
+[node name="Button4" type="Button" parent="Buttons"]
+material = SubResource("ShaderMaterial_ga8i7")
+offset_left = 737.0
+offset_top = 240.0
+offset_right = 983.0
+offset_bottom = 419.0
+
+[node name="Button5" type="Button" parent="Buttons"]
+material = SubResource("ShaderMaterial_ga8i7")
+offset_left = 452.0
+offset_top = 240.0
+offset_right = 698.0
+offset_bottom = 419.0
+
+[node name="Button6" type="Button" parent="Buttons"]
+material = SubResource("ShaderMaterial_ga8i7")
+offset_left = 179.0
+offset_top = 240.0
+offset_right = 425.0
+offset_bottom = 419.0
+
+[node name="Button7" type="Button" parent="Buttons"]
+material = SubResource("ShaderMaterial_ga8i7")
+offset_left = 174.0
+offset_top = 457.0
+offset_right = 420.0
+offset_bottom = 624.0
+
+[node name="Button8" type="Button" parent="Buttons"]
+material = SubResource("ShaderMaterial_ga8i7")
+offset_left = 456.0
+offset_top = 459.0
+offset_right = 702.0
+offset_bottom = 626.0
+
+[node name="Button9" type="Button" parent="Buttons"]
+material = SubResource("ShaderMaterial_ga8i7")
+offset_left = 732.0
+offset_top = 457.0
+offset_right = 978.0
+offset_bottom = 624.0
+
+[node name="GameOverLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("8_7q1bs")
+
+[node name="Panel" type="Panel" parent="GameOverLayer"]
+offset_left = 19.0
+offset_top = 28.0
+offset_right = 1137.0
+offset_bottom = 624.0
+
+[node name="Label" type="Label" parent="GameOverLayer"]
+offset_left = 279.0
+offset_top = 73.0
+offset_right = 899.0
+offset_bottom = 227.0
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="Button" parent="GameOverLayer"]
+offset_left = 461.0
+offset_top = 243.0
+offset_right = 694.0
+offset_bottom = 326.0
+text = "Retry"
+
+[node name="ToMainMenu" type="Button" parent="GameOverLayer"]
+offset_left = 462.0
+offset_top = 338.0
+offset_right = 695.0
+offset_bottom = 421.0
+text = "Main Menu"
+
+[connection signal="pressed" from="Buttons/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Buttons/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Buttons/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Buttons/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Buttons/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Buttons/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Buttons/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Buttons/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Buttons/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="GameOverLayer/Retry" to="GameOverLayer" method="_on_retry_pressed"]
+[connection signal="pressed" from="GameOverLayer/ToMainMenu" to="GameOverLayer" method="_on_to_main_menu_pressed"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://brbowfxw7j6ot"]
+
+[ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_5ahn1"]
+[ext_resource type="Texture2D" uid="uid://btepcttr42vi3" path="res://icon.svg" id="1_gf1or"]
+[ext_resource type="Shader" path="res://scenes/start_menu.gdshader" id="2_lcaec"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lq81u"]
+shader = ExtResource("2_lcaec")
+
+[node name="Start_Menu" type="Node2D"]
+script = ExtResource("1_5ahn1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_lq81u")
+position = Vector2(579, 327)
+scale = Vector2(10.1328, 6.25)
+texture = ExtResource("1_gf1or")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 404.0
+offset_top = 185.0
+offset_right = 715.0
+offset_bottom = 304.0
+text = "Start Game"
+
+[node name="End" type="Button" parent="."]
+offset_left = 401.0
+offset_top = 390.0
+offset_right = 713.0
+offset_bottom = 509.0
+text = "Quit"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="End" to="." method="_on_end_pressed"]
