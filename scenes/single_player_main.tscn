@@ -1,31 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7y6dt63p33mc"]
+[gd_scene load_steps=12 format=3 uid="uid://cogyy1ql2tuuk"]
 
-[ext_resource type="Shader" path="res://scenes/main.gdshader" id="1_hih5l"]
-[ext_resource type="Script" path="res://scenes/Co-op.gd" id="1_n1x5g"]
-[ext_resource type="Texture2D" uid="uid://btepcttr42vi3" path="res://icon.svg" id="2_vxjqb"]
-[ext_resource type="Shader" path="res://scenes/line1.gdshader" id="3_8n43y"]
-[ext_resource type="PackedScene" uid="uid://d01mrnhdphy2h" path="res://scenes/x.tscn" id="4_36i41"]
-[ext_resource type="PackedScene" uid="uid://bbgoy3vh8rl0s" path="res://scenes/o.tscn" id="5_1u06d"]
-[ext_resource type="Shader" path="res://scenes/button.gdshader" id="7_t6ra0"]
-[ext_resource type="Script" path="res://scenes/game_over_layer.gd" id="8_7q1bs"]
+[ext_resource type="Script" path="res://scenes/SinglePlayer.gd" id="1_hyska"]
+[ext_resource type="Shader" path="res://scenes/main.gdshader" id="2_m1gcn"]
+[ext_resource type="Texture2D" uid="uid://btepcttr42vi3" path="res://icon.svg" id="3_5uhvb"]
+[ext_resource type="Shader" path="res://scenes/line1.gdshader" id="4_gdebj"]
+[ext_resource type="PackedScene" uid="uid://d01mrnhdphy2h" path="res://scenes/x.tscn" id="5_eivfe"]
+[ext_resource type="PackedScene" uid="uid://bbgoy3vh8rl0s" path="res://scenes/o.tscn" id="6_hwa62"]
+[ext_resource type="Shader" path="res://scenes/button.gdshader" id="7_6s51h"]
+[ext_resource type="Script" path="res://scenes/game_over_layer.gd" id="8_sv2kt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7b5x3"]
-shader = ExtResource("1_hih5l")
+shader = ExtResource("2_m1gcn")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2dccl"]
-shader = ExtResource("3_8n43y")
+shader = ExtResource("4_gdebj")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ga8i7"]
-shader = ExtResource("7_t6ra0")
+shader = ExtResource("7_6s51h")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_n1x5g")
+script = ExtResource("1_hyska")
 
 [node name="background" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7b5x3")
 position = Vector2(587, 349)
 scale = Vector2(11.4141, 6.25781)
-texture = ExtResource("2_vxjqb")
+texture = ExtResource("3_5uhvb")
 
 [node name="Grid" type="Node2D" parent="."]
 position = Vector2(86, 5)
@@ -34,118 +34,118 @@ position = Vector2(86, 5)
 material = SubResource("ShaderMaterial_2dccl")
 position = Vector2(353, 317)
 scale = Vector2(0.265625, 4.78125)
-texture = ExtResource("2_vxjqb")
+texture = ExtResource("3_5uhvb")
 
 [node name="line2" type="Sprite2D" parent="Grid"]
 material = SubResource("ShaderMaterial_2dccl")
 position = Vector2(632, 314)
 scale = Vector2(0.265625, 4.78125)
-texture = ExtResource("2_vxjqb")
+texture = ExtResource("3_5uhvb")
 
 [node name="line3" type="Sprite2D" parent="Grid"]
 material = SubResource("ShaderMaterial_2dccl")
 position = Vector2(490.206, 436)
 rotation = 1.5708
 scale = Vector2(0.265625, 6.28184)
-texture = ExtResource("2_vxjqb")
+texture = ExtResource("3_5uhvb")
 
 [node name="line4" type="Sprite2D" parent="Grid"]
 material = SubResource("ShaderMaterial_2dccl")
 position = Vector2(490.206, 213.41)
 rotation = 1.5708
 scale = Vector2(0.265625, 6.28184)
-texture = ExtResource("2_vxjqb")
+texture = ExtResource("3_5uhvb")
 
 [node name="X" type="Node2D" parent="."]
 
-[node name="X1" parent="X" instance=ExtResource("4_36i41")]
+[node name="X1" parent="X" instance=ExtResource("5_eivfe")]
 visible = false
 position = Vector2(146, 19)
 scale = Vector2(0.295, 0.295)
 
-[node name="X2" parent="X" instance=ExtResource("4_36i41")]
+[node name="X2" parent="X" instance=ExtResource("5_eivfe")]
 visible = false
 position = Vector2(443, 18)
 scale = Vector2(0.295, 0.295)
 
-[node name="X3" parent="X" instance=ExtResource("4_36i41")]
+[node name="X3" parent="X" instance=ExtResource("5_eivfe")]
 visible = false
 position = Vector2(705, 17)
 scale = Vector2(0.295, 0.295)
 
-[node name="X4" parent="X" instance=ExtResource("4_36i41")]
+[node name="X4" parent="X" instance=ExtResource("5_eivfe")]
 visible = false
 position = Vector2(706, 246)
 scale = Vector2(0.295, 0.295)
 
-[node name="X5" parent="X" instance=ExtResource("4_36i41")]
+[node name="X5" parent="X" instance=ExtResource("5_eivfe")]
 visible = false
 position = Vector2(421, 240)
 scale = Vector2(0.295, 0.295)
 
-[node name="X6" parent="X" instance=ExtResource("4_36i41")]
+[node name="X6" parent="X" instance=ExtResource("5_eivfe")]
 visible = false
 position = Vector2(145, 234)
 scale = Vector2(0.295, 0.295)
 
-[node name="X7" parent="X" instance=ExtResource("4_36i41")]
+[node name="X7" parent="X" instance=ExtResource("5_eivfe")]
 visible = false
 position = Vector2(141, 445)
 scale = Vector2(0.295, 0.295)
 
-[node name="X8" parent="X" instance=ExtResource("4_36i41")]
+[node name="X8" parent="X" instance=ExtResource("5_eivfe")]
 visible = false
 position = Vector2(433, 449)
 scale = Vector2(0.295, 0.295)
 
-[node name="X9" parent="X" instance=ExtResource("4_36i41")]
+[node name="X9" parent="X" instance=ExtResource("5_eivfe")]
 visible = false
 position = Vector2(713, 450)
 scale = Vector2(0.295, 0.295)
 
 [node name="O" type="Node2D" parent="."]
 
-[node name="O1" parent="O" instance=ExtResource("5_1u06d")]
+[node name="O1" parent="O" instance=ExtResource("6_hwa62")]
 visible = false
 position = Vector2(-118, -114)
 scale = Vector2(0.715, 0.715)
 
-[node name="O2" parent="O" instance=ExtResource("5_1u06d")]
+[node name="O2" parent="O" instance=ExtResource("6_hwa62")]
 visible = false
 position = Vector2(185, -116)
 scale = Vector2(0.715, 0.715)
 
-[node name="O3" parent="O" instance=ExtResource("5_1u06d")]
+[node name="O3" parent="O" instance=ExtResource("6_hwa62")]
 visible = false
 position = Vector2(447, -114)
 scale = Vector2(0.715, 0.715)
 
-[node name="O4" parent="O" instance=ExtResource("5_1u06d")]
+[node name="O4" parent="O" instance=ExtResource("6_hwa62")]
 visible = false
 position = Vector2(447, 114)
 scale = Vector2(0.715, 0.715)
 
-[node name="O5" parent="O" instance=ExtResource("5_1u06d")]
+[node name="O5" parent="O" instance=ExtResource("6_hwa62")]
 visible = false
 position = Vector2(165, 107)
 scale = Vector2(0.715, 0.715)
 
-[node name="O6" parent="O" instance=ExtResource("5_1u06d")]
+[node name="O6" parent="O" instance=ExtResource("6_hwa62")]
 visible = false
 position = Vector2(-115, 103)
 scale = Vector2(0.715, 0.715)
 
-[node name="O7" parent="O" instance=ExtResource("5_1u06d")]
+[node name="O7" parent="O" instance=ExtResource("6_hwa62")]
 visible = false
 position = Vector2(-119, 314)
 scale = Vector2(0.715, 0.715)
 
-[node name="O8" parent="O" instance=ExtResource("5_1u06d")]
+[node name="O8" parent="O" instance=ExtResource("6_hwa62")]
 visible = false
 position = Vector2(171, 316)
 scale = Vector2(0.715, 0.715)
 
-[node name="O9" parent="O" instance=ExtResource("5_1u06d")]
+[node name="O9" parent="O" instance=ExtResource("6_hwa62")]
 visible = false
 position = Vector2(456, 318)
 scale = Vector2(0.715, 0.715)
@@ -217,7 +217,7 @@ offset_bottom = 624.0
 
 [node name="GameOverLayer" type="CanvasLayer" parent="."]
 process_mode = 3
-script = ExtResource("8_7q1bs")
+script = ExtResource("8_sv2kt")
 
 [node name="Panel" type="Panel" parent="GameOverLayer"]
 offset_left = 19.0
