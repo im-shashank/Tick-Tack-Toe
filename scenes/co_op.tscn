@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1x0n27dinx8w"]
+
+[ext_resource type="PackedScene" uid="uid://c7y6dt63p33mc" path="res://scenes/Co-op_main.tscn" id="1_227bp"]
+
+[node name="Co-op" type="Node2D"]
+
+[node name="Main" parent="." instance=ExtResource("1_227bp")]
