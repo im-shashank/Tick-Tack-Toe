@@ -16,19 +16,27 @@ position = Vector2(579, 327)
 scale = Vector2(10.1328, 6.25)
 texture = ExtResource("1_gf1or")
 
-[node name="Start" type="Button" parent="."]
+[node name="SinglePlayer" type="Button" parent="."]
 offset_left = 404.0
-offset_top = 185.0
+offset_top = 56.29
 offset_right = 715.0
-offset_bottom = 304.0
-text = "Start Game"
+offset_bottom = 175.29
+text = "Single player"
+
+[node name="Co-op" type="Button" parent="."]
+offset_left = 404.0
+offset_top = 272.81
+offset_right = 715.0
+offset_bottom = 391.81
+text = "Co-op"
 
 [node name="End" type="Button" parent="."]
-offset_left = 401.0
-offset_top = 390.0
-offset_right = 713.0
-offset_bottom = 509.0
+offset_left = 404.0
+offset_top = 475.31
+offset_right = 716.0
+offset_bottom = 594.31
 text = "Quit"
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="SinglePlayer" to="." method="_on_single_player_pressed"]
+[connection signal="pressed" from="Co-op" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="End" to="." method="_on_end_pressed"]
