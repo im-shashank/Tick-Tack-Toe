@@ -6,12 +6,27 @@ var winner = ""
 @onready var o = get_node("O")
 @onready var turn = 0;
 @onready var currentTurn = "x"
+@onready var currentButtonPressed = ""
 
+# A 2-D array representation of the playing grid
 @onready var grid = [
 	["", "", ""],
 	["", "", ""],
 	["", "", ""]
 ]
+
+# A map containting all the adjacent positions possible for a speciific position
+@onready var buttonAdjacencyMap = {
+	"1": [[0, 1], [1, 0], [1, 1]],
+	"2": [[0, 0], [0, 2], [1, 1]],
+	"3": [[0, 1], [1, 2], [1, 1]],
+	"4": [[1, 1], [0, 2], [2, 2]],
+	"5": [[0, 0], [0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1], [2, 2]],
+	"6": [[0, 0], [2, 0], [1, 1]],
+	"7": [[1, 0], [1, 1], [2, 1]],
+	"8": [[2, 0], [1, 1], [2, 2]],
+	"9": [[2, 1], [1, 1], [1, 2]]
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,13 +62,26 @@ func checkWinner():
 		return grid[0][2]
 	
 
+func checkForAdjacentX():
+	#this function will check for adjacent x to the current position of the x
+	var possibleAdjacentPositions: Array = buttonAdjacencyMap[currentButtonPressed]
+	for i in (possibleAdjacentPositions.size()):
+		var possiblePositionArray: Array = possibleAdjacentPositions[i]
+		var x_position: int = possiblePositionArray[0]
+		var y_position: int = possiblePositionArray[1]
+		print(grid[x_position][y_position])
+			
+	pass
+
+
 func _on_button_1_pressed() -> void:
-	if currentTurn == "x" && grid[0][0] == "":
+	currentButtonPressed = "1"
+	if grid[0][0] == "":
 		turn += 1
 		var x1 = x.get_child(0)
 		x1.visible = true
 		grid[0][0] = "X"
-		currentTurn = "o"
+		checkForAdjacentX()
 	elif currentTurn == "o" && grid[0][0] == "":
 		turn += 1
 		var o1 = o.get_child(0)
@@ -64,6 +92,8 @@ func _on_button_1_pressed() -> void:
 
 
 func _on_button_2_pressed() -> void:
+	currentButtonPressed = "2"
+	checkForAdjacentX()
 	if currentTurn == "x" && grid[0][1] == "":
 		turn += 1
 		var x2 = x.get_child(1)
@@ -80,6 +110,8 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
+	currentButtonPressed = "3"
+	checkForAdjacentX()
 	if currentTurn == "x" && grid[0][2] == "":
 		turn += 1
 		var x3 = x.get_child(2)
@@ -96,6 +128,8 @@ func _on_button_3_pressed() -> void:
 
 
 func _on_button_4_pressed() -> void:
+	currentButtonPressed = "4"
+	checkForAdjacentX()
 	if currentTurn == "x" && grid[1][2] == "":
 		turn += 1
 		var x4 = x.get_child(3)
@@ -112,6 +146,8 @@ func _on_button_4_pressed() -> void:
 
 
 func _on_button_5_pressed() -> void:
+	currentButtonPressed = "5"
+	checkForAdjacentX()
 	if currentTurn == "x" && grid[1][1] == "":
 		turn += 1
 		var x5 = x.get_child(4)
@@ -128,6 +164,8 @@ func _on_button_5_pressed() -> void:
 
 
 func _on_button_6_pressed() -> void:
+	currentButtonPressed = "6"
+	checkForAdjacentX()
 	if currentTurn == "x" && grid[1][0] == "":
 		turn += 1
 		var x6 = x.get_child(5)
@@ -144,6 +182,8 @@ func _on_button_6_pressed() -> void:
 
 
 func _on_button_7_pressed() -> void:
+	currentButtonPressed = "7"
+	checkForAdjacentX()
 	if currentTurn == "x" && grid[2][0] == "":
 		turn += 1
 		var x7 = x.get_child(6)
@@ -160,6 +200,8 @@ func _on_button_7_pressed() -> void:
 
 
 func _on_button_8_pressed() -> void:
+	currentButtonPressed = "8"
+	checkForAdjacentX()
 	if currentTurn == "x" && grid[2][1] == "":
 		turn += 1
 		var x8 = x.get_child(7)
@@ -176,6 +218,8 @@ func _on_button_8_pressed() -> void:
 
 
 func _on_button_9_pressed() -> void:
+	currentButtonPressed = "9"
+	checkForAdjacentX()
 	if currentTurn == "x" && grid[2][2] == "":
 		turn += 1
 		var x9 = x.get_child(8)
