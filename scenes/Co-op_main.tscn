@@ -1,25 +1,25 @@
 [gd_scene load_steps=12 format=3 uid="uid://c7y6dt63p33mc"]
 
-[ext_resource type="Shader" path="res://scenes/main.gdshader" id="1_hih5l"]
-[ext_resource type="Script" path="res://scenes/Co-op.gd" id="1_n1x5g"]
+[ext_resource type="Script" path="res://scenes/scripts/Co-op.gd" id="1_2ud2j"]
+[ext_resource type="Shader" path="res://scenes/shaders/main.gdshader" id="2_bso78"]
 [ext_resource type="Texture2D" uid="uid://btepcttr42vi3" path="res://icon.svg" id="2_vxjqb"]
-[ext_resource type="Shader" path="res://scenes/line1.gdshader" id="3_8n43y"]
 [ext_resource type="PackedScene" uid="uid://d01mrnhdphy2h" path="res://scenes/x.tscn" id="4_36i41"]
+[ext_resource type="Shader" path="res://scenes/shaders/line1.gdshader" id="4_s7hsl"]
 [ext_resource type="PackedScene" uid="uid://bbgoy3vh8rl0s" path="res://scenes/o.tscn" id="5_1u06d"]
-[ext_resource type="Shader" path="res://scenes/button.gdshader" id="7_t6ra0"]
-[ext_resource type="Script" path="res://scenes/game_over_layer.gd" id="8_7q1bs"]
+[ext_resource type="Shader" path="res://scenes/shaders/button.gdshader" id="7_jsqup"]
+[ext_resource type="Script" path="res://scenes/scripts/game_over_layer.gd" id="8_7e6xt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7b5x3"]
-shader = ExtResource("1_hih5l")
+shader = ExtResource("2_bso78")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2dccl"]
-shader = ExtResource("3_8n43y")
+shader = ExtResource("4_s7hsl")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ga8i7"]
-shader = ExtResource("7_t6ra0")
+shader = ExtResource("7_jsqup")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_n1x5g")
+script = ExtResource("1_2ud2j")
 
 [node name="background" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7b5x3")
@@ -217,7 +217,7 @@ offset_bottom = 624.0
 
 [node name="GameOverLayer" type="CanvasLayer" parent="."]
 process_mode = 3
-script = ExtResource("8_7q1bs")
+script = ExtResource("8_7e6xt")
 
 [node name="Panel" type="Panel" parent="GameOverLayer"]
 offset_left = 19.0

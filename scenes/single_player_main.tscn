@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://cogyy1ql2tuuk"]
 
-[ext_resource type="Script" path="res://scenes/SinglePlayer.gd" id="1_hyska"]
-[ext_resource type="Shader" path="res://scenes/main.gdshader" id="2_m1gcn"]
+[ext_resource type="Script" path="res://scenes/scripts/SinglePlayer.gd" id="1_6n4uq"]
+[ext_resource type="Shader" path="res://scenes/shaders/main.gdshader" id="2_m1gcn"]
 [ext_resource type="Texture2D" uid="uid://btepcttr42vi3" path="res://icon.svg" id="3_5uhvb"]
-[ext_resource type="Shader" path="res://scenes/line1.gdshader" id="4_gdebj"]
+[ext_resource type="Shader" path="res://scenes/shaders/line1.gdshader" id="4_gdebj"]
 [ext_resource type="PackedScene" uid="uid://d01mrnhdphy2h" path="res://scenes/x.tscn" id="5_eivfe"]
 [ext_resource type="PackedScene" uid="uid://bbgoy3vh8rl0s" path="res://scenes/o.tscn" id="6_hwa62"]
-[ext_resource type="Shader" path="res://scenes/button.gdshader" id="7_6s51h"]
-[ext_resource type="Script" path="res://scenes/game_over_layer.gd" id="8_sv2kt"]
+[ext_resource type="Shader" path="res://scenes/shaders/button.gdshader" id="7_6s51h"]
+[ext_resource type="Script" path="res://scenes/scripts/game_over_layer.gd" id="8_11oi8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7b5x3"]
 shader = ExtResource("2_m1gcn")
@@ -19,7 +19,7 @@ shader = ExtResource("4_gdebj")
 shader = ExtResource("7_6s51h")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_hyska")
+script = ExtResource("1_6n4uq")
 
 [node name="background" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7b5x3")
@@ -217,7 +217,7 @@ offset_bottom = 624.0
 
 [node name="GameOverLayer" type="CanvasLayer" parent="."]
 process_mode = 3
-script = ExtResource("8_sv2kt")
+script = ExtResource("8_11oi8")
 
 [node name="Panel" type="Panel" parent="GameOverLayer"]
 offset_left = 19.0

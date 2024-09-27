@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://brbowfxw7j6ot"]
 
-[ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_5ahn1"]
+[ext_resource type="Script" path="res://scenes/scripts/start_menu.gd" id="1_0kpya"]
 [ext_resource type="Texture2D" uid="uid://btepcttr42vi3" path="res://icon.svg" id="1_gf1or"]
-[ext_resource type="Shader" path="res://scenes/start_menu.gdshader" id="2_lcaec"]
+[ext_resource type="Shader" path="res://scenes/shaders/start_menu.gdshader" id="2_rm6go"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lq81u"]
-shader = ExtResource("2_lcaec")
+shader = ExtResource("2_rm6go")
 
 [node name="Start_Menu" type="Node2D"]
-script = ExtResource("1_5ahn1")
+script = ExtResource("1_0kpya")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_lq81u")

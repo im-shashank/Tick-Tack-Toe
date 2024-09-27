@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://d01mrnhdphy2h"]
 
 [ext_resource type="Texture2D" uid="uid://btepcttr42vi3" path="res://icon.svg" id="1_f6ixg"]
-[ext_resource type="Shader" path="res://scenes/x.gdshader" id="1_h7nxe"]
+[ext_resource type="Shader" path="res://scenes/shaders/x.gdshader" id="1_kcjqg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ogkea"]
-shader = ExtResource("1_h7nxe")
+shader = ExtResource("1_kcjqg")
 
 [node name="X" type="Node2D"]
 
