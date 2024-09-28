@@ -6,4 +6,4 @@ Currently in the release:
 2. Added single player PvE mode to the game.
 
 Planned to add:
-2. Add a multiplayer feature.
+1. Add a multiplayer feature.
