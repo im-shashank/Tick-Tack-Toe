@@ -21,3 +21,7 @@ func _on_end_pressed() -> void:
 
 func _on_single_player_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/single_player.tscn")
+
+
+func _on_multiplayer_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/multiplayer_host_or_join.tscn")
