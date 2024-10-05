@@ -24,7 +24,7 @@ func peer_disconnected(id):
 
 
 func connected_to_server():
-	sendPlayerInformation.rpc($Buttons/LineEdit.text, multiplayer.get_unique_id())
+	sendPlayerInformation.rpc($Buttons/LineEdit.text, multiplayer.get_unique_id(), peer)
 
 
 func server_disconnected():
@@ -32,18 +32,17 @@ func server_disconnected():
 
 
 @rpc("any_peer")
-func sendPlayerInformation(name, id):
+func sendPlayerInformation(name, id, peer):
 	if !MultiplayerManager.Players.has(id):
-		print("did not find " + str(id) + " player id so adding it")
 		MultiplayerManager.Players[id] = {
 			"name": name,
-			"id": id
+			"id": id,
+			"peer": peer
 		}
 
 	elif multiplayer.is_server():
-		print(MultiplayerManager.Players)
 		for i in MultiplayerManager.Players:
-			sendPlayerInformation(MultiplayerManager.Players[i].name, i)
+			sendPlayerInformation(MultiplayerManager.Players[i].name, i, peer)
 
 
 #let's load multiplayer scene
@@ -69,7 +68,7 @@ func _on_host_pressed() -> void:
 	
 	multiplayer.set_multiplayer_peer(peer)
 	print("waiting for players!")
-	sendPlayerInformation($Buttons/LineEdit.text, multiplayer.get_unique_id())
+	sendPlayerInformation($Buttons/LineEdit.text, multiplayer.get_unique_id(), peer)
 
 
 #this function will be called when the player wants to join a session
