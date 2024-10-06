@@ -9,5 +9,5 @@ Planned to add:
 1. Add a multiplayer feature.
 
 
-Version 1 download link:
+Download link:
 https://shashank-bhardwaj.itch.io/tic-tac-toe
