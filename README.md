@@ -8,3 +8,5 @@ Currently in the release:
 
 Download link:
 https://shashank-bhardwaj.itch.io/tic-tac-toe
+
+This was a fun project and the things I learnt from making this project will be used in creating much more interactive games in the future :)
