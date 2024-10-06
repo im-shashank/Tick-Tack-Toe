@@ -7,3 +7,7 @@ Currently in the release:
 
 Planned to add:
 1. Add a multiplayer feature.
+
+
+Version 1 download link:
+https://shashank-bhardwaj.itch.io/tic-tac-toe
