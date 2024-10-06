@@ -18,25 +18,33 @@ texture = ExtResource("1_gf1or")
 
 [node name="SinglePlayer" type="Button" parent="."]
 offset_left = 404.0
-offset_top = 56.29
+offset_top = 14.11
 offset_right = 715.0
-offset_bottom = 175.29
+offset_bottom = 133.11
 text = "Single player"
 
 [node name="Co-op" type="Button" parent="."]
 offset_left = 404.0
-offset_top = 272.81
+offset_top = 351.07
 offset_right = 715.0
-offset_bottom = 391.81
+offset_bottom = 470.07
 text = "Co-op"
+
+[node name="multiplayer" type="Button" parent="."]
+offset_left = 404.0
+offset_top = 187.22
+offset_right = 715.0
+offset_bottom = 306.22
+text = "Multi player"
 
 [node name="End" type="Button" parent="."]
 offset_left = 404.0
-offset_top = 475.31
+offset_top = 508.06
 offset_right = 716.0
-offset_bottom = 594.31
+offset_bottom = 627.06
 text = "Quit"
 
 [connection signal="pressed" from="SinglePlayer" to="." method="_on_single_player_pressed"]
 [connection signal="pressed" from="Co-op" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="multiplayer" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="End" to="." method="_on_end_pressed"]

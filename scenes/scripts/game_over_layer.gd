@@ -15,5 +15,6 @@ func _on_retry_pressed() -> void:
 
 
 func _on_to_main_menu_pressed() -> void:
+	self.hide()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
