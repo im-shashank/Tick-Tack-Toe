@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d01mrnhdphy2h" path="res://scenes/x.tscn" id="5_tiilg"]
 [ext_resource type="PackedScene" uid="uid://bbgoy3vh8rl0s" path="res://scenes/o.tscn" id="6_ptfnj"]
 [ext_resource type="Shader" path="res://scenes/shaders/button.gdshader" id="7_0l4ni"]
-[ext_resource type="Script" path="res://scenes/scripts/game_over_layer.gd" id="8_h2u1v"]
+[ext_resource type="Script" path="res://scenes/scripts/multiplayer_game_over_overlay.gd" id="8_tj3tl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7b5x3"]
 shader = ExtResource("2_lctpg")
@@ -215,9 +215,16 @@ offset_top = 457.0
 offset_right = 978.0
 offset_bottom = 624.0
 
+[node name="Leave" type="Button" parent="."]
+offset_left = 17.0
+offset_top = 6.0
+offset_right = 143.0
+offset_bottom = 43.0
+text = "Leave"
+
 [node name="GameOverLayer" type="CanvasLayer" parent="."]
 process_mode = 3
-script = ExtResource("8_h2u1v")
+script = ExtResource("8_tj3tl")
 
 [node name="Panel" type="Panel" parent="GameOverLayer"]
 offset_left = 19.0
@@ -258,5 +265,6 @@ text = "Main Menu"
 [connection signal="pressed" from="Buttons/Button7" to="." method="_on_button_7_pressed"]
 [connection signal="pressed" from="Buttons/Button8" to="." method="_on_button_8_pressed"]
 [connection signal="pressed" from="Buttons/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="GameOverLayer/Retry" to="GameOverLayer" method="_on_retry_pressed"]
 [connection signal="pressed" from="GameOverLayer/ToMainMenu" to="GameOverLayer" method="_on_to_main_menu_pressed"]

@@ -33,9 +33,24 @@ signal matchDraw
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	multiplayer.peer_disconnected.connect(peer_disconnected)
+	multiplayer.server_disconnected.connect(server_disconnected)
 	peer.peer_packet.connect(receiveDataFromPeer)
+
 	$".".foundWinner.connect(display_gamer_over_overlay)
 	$".".matchDraw.connect(match_draw)
+
+
+func peer_disconnected(id):
+	print("Peer disconnected: ", id)
+	multiplayer.multiplayer_peer.close()
+	returnToMainMenu()
+
+
+func server_disconnected(id):
+	print("Server diconnected: ", id)
+	returnToMainMenu.rpc()
+	multiplayer.multiplayer_peer.close()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -119,6 +134,7 @@ func receiveDataFromPeer(id: int, packet: PackedByteArray):
 	turn = data["turn"]
 	winner = data["winner"]
 	print("winner is ", winner)
+	displayGameOverScreen()
 
 
 func _on_button_1_pressed() -> void:
@@ -281,3 +297,15 @@ func _on_button_9_pressed() -> void:
 	winner = checkWinner()
 	sendDataToPeers()
 	displayGameOverScreen()
+
+
+func _on_leave_pressed() -> void:
+	if multiplayer.is_server():
+		multiplayer.server_disconnected.emit(multiplayer.get_unique_id())
+	else:
+		multiplayer.peer_disconnected.emit(multiplayer.get_unique_id())
+
+
+@rpc("any_peer", "call_local")
+func returnToMainMenu():
+	get_tree().change_scene_to_file("res://scenes/start_menu.tscn")

@@ -24,25 +24,26 @@ func peer_disconnected(id):
 
 
 func connected_to_server():
-	sendPlayerInformation.rpc($Buttons/LineEdit.text, multiplayer.get_unique_id(), peer)
+	print("Connected to server")
+	# sendPlayerInformation.rpc($Buttons/LineEdit.text, multiplayer.get_unique_id(), peer)
 
 
 func server_disconnected():
 	print("server_disconnected")
 
 
-@rpc("any_peer")
-func sendPlayerInformation(name, id, peer):
-	if !MultiplayerManager.Players.has(id):
-		MultiplayerManager.Players[id] = {
-			"name": name,
-			"id": id,
-			"peer": peer
-		}
+# @rpc("any_peer")
+# func sendPlayerInformation(name, id, peer):
+# 	if !MultiplayerManager.Players.has(id):
+# 		MultiplayerManager.Players[id] = {
+# 			"name": name,
+# 			"id": id,
+# 			"peer": peer
+# 		}
 
-	elif multiplayer.is_server():
-		for i in MultiplayerManager.Players:
-			sendPlayerInformation(MultiplayerManager.Players[i].name, i, peer)
+# 	elif multiplayer.is_server():
+# 		for i in MultiplayerManager.Players:
+# 			sendPlayerInformation(MultiplayerManager.Players[i].name, i, peer)
 
 
 #let's load multiplayer scene
@@ -54,6 +55,10 @@ func start_game():
 
 
 func _on_main_menu_pressed() -> void:
+	if multiplayer.is_server():
+		multiplayer.server_disconnected.emit(multiplayer.get_unique_id())
+	else:
+		multiplayer.peer_disconnected.emit(multiplayer.get_unique_id())
 	get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
 
 
@@ -68,7 +73,7 @@ func _on_host_pressed() -> void:
 	
 	multiplayer.set_multiplayer_peer(peer)
 	print("waiting for players!")
-	sendPlayerInformation($Buttons/LineEdit.text, multiplayer.get_unique_id(), peer)
+	# sendPlayerInformation($Buttons/LineEdit.text, multiplayer.get_unique_id(), peer)
 
 
 #this function will be called when the player wants to join a session
@@ -81,4 +86,7 @@ func _on_join_pressed() -> void:
 
 #this function will be called to start the game
 func _on_start_game_pressed() -> void:
-	start_game.rpc()
+	if multiplayer.is_server():
+		start_game.rpc()
+	else:
+		print("Not a server or server not started yet")
